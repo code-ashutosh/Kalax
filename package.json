@@ -1,0 +1,26 @@
+{
+  "name": "kalax",
+  "version": "1.0.0",
+  "description": "\"This is Kalax, a Chat App\"",
+  "main": "index.js",
+  "scripts": {
+    "start":"nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/code-ashutosh/Kalax.git"
+  },
+  "author": "\"Ashutosh Trivedi\"",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/code-ashutosh/Kalax/issues"
+  },
+  "homepage": "https://github.com/code-ashutosh/Kalax#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "nodemon": "^2.0.2",
+    "socket.io": "^2.3.0"
+  }
+}

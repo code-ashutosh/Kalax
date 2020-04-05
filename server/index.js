@@ -40,13 +40,21 @@ io.on("connection", (socket) => {
       
       callback();
     });
-  socket.on("disconnect", () => {
-    console.log("User has disconnected!");
+
+    //seek if user is typing 
+    socket.on('userIsTyping',(typing)=>{
+      const user = getUser(socket.id);  
+      console.log(user.name+"is typing");
+      socket.broadcast.to(user.room).emit('userIsTyping',{user:user.name,typing:typing});
+    });
+
+    socket.on("disconnect", () => {
+    // console.log("User has disconnected!");
     
-    console.log(socket.id+"is the id");
+    // console.log(socket.id+"is the id");
     const user = removeUser(socket.id);
     if(user){
-      console.log("user is available");
+      // console.log("user is available");
       io.to(user.room).emit('message',{user:'admin',text:`${user.name} has left the room`});
       io.to(user.room).emit('roomData',{room:user.room, users:getUserInRoom(user.room)})
     }
